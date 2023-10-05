@@ -1,0 +1,4 @@
+edu/levelup/jsftest/resources/JakartaEE91Resource.class
+edu/levelup/jsftest/pojo/Usuario.class
+edu/levelup/managed/UsuarioManagedBean.class
+edu/levelup/jsftest/JakartaRestConfiguration.class

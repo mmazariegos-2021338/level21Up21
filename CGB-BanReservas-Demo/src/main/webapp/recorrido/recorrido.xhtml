@@ -1,0 +1,47 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Recorrido</ui:define>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <ui:define name="content">
+    <h:body>
+        <h:form>
+            <div class="card ui-fluid">
+                <h5>Ingreso de Datos de Recorrido</h5>
+                <div class="field">
+                    <p:outputLabel for="idRecorrido">Codigo</p:outputLabel>
+                    <p:inputText id="idRecorrido" value="#{recorridoView.selectedRecorrido.idRecorrido}"/>
+                </div>
+                <div class="field">
+                    <p:outputLabel for="nombre">Nombre</p:outputLabel>
+                    <p:inputText id="nombre" value="#{recorridoView.selectedRecorrido.nombre}"/>
+                </div>
+                <div class="field">
+                    <p:outputLabel for="duracion">Duracion</p:outputLabel>
+                    <p:inputText id="duracion" value="#{recorridoView.selectedRecorrido.duracion}"/>
+                </div>
+                <div class="field">
+                    <p:outputLabel for="descripcion">Descripcion</p:outputLabel>
+                    <p:inputText id="descripcion" value="#{recorridoView.selectedRecorrido.descripcion}"/>
+                </div>
+                <div class="field">
+                    <p:outputLabel for="pais">Pais</p:outputLabel>
+                    <p:inputText id="pais" value="#{recorridoView.selectedRecorrido.pais}"/>
+                </div>
+                <div class="field">
+                    <p:commandButton value="Submit" styleClass="mr-2 mb-2" action="#{recorridoView.save}"/>
+                </div>
+
+            </div>
+        </h:form>
+
+    </h:body>
+</ui:define>
+
+</ui:composition>

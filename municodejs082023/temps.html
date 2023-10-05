@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // variables
+        var ciudades = new Array(5);
+        var temps = new Array(5);
+
+        for (let i = 0; i<5; i++){
+            ciudades[i] = prompt("Ingrese ciudad ");
+            temps[i] = parseFloat(prompt("Ingrese temperatura"));
+        }
+        document.write("ciudades: "+ciudades);
+        document.write("<br>temps: "+temps);
+
+        //temperatura mayor
+        let mayor = temps[0];
+        let ciudadMayor = ciudades[0];
+
+        for (let v = 1; v<5; v++){
+            if (mayor < temps[v]){
+                mayor = temps[v];
+                ciudadMayor = ciudades[v];
+            }
+        }
+        document.write("<h3>La ciudad "+ciudadMayor+" es la mas calurosa con "+mayor+" grados</h3>");
+        // calculo de promedio
+        let suma = 0;
+        for (let i = 0; i<5; i++){
+            suma = suma + temps[i];
+        }
+        let promedio = suma / 5;
+        document.write("<h3>El promedio de temperatura es "+promedio+"grados</h3>")
+
+
+    </script>
+</body>
+</html>

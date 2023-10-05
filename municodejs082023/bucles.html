@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numero = 1;
+
+        while ( numero > 0){  //mientras la condicion se cumpla o sea verdadera haga lo que que sentre llaes
+            numero = parseInt(prompt("Ingrese numero"));
+
+
+        }
+        document.write("fin del progama");
+
+        //a partir del x muestra los siguientes x numeros pares
+        //entrada
+        let x = parseInt(prompt("Ingrese el numero"));
+
+        let contador = 0;
+        let num = x;
+
+        while(contador < x){
+            if (num % 2 == 0){
+                document.write(num+" - ");
+                contador++;
+            }
+            num = num +1 ;
+        }
+        
+        
+    </script>
+</body>
+</html>

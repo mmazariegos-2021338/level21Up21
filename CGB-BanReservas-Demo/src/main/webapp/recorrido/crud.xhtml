@@ -1,0 +1,87 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Recorridos</ui:define>
+
+
+
+    <ui:define name="content">
+        <h:form id="form">
+            <div class="grid crud-demo">
+                <div class="col-12">
+                    <div class="card">
+                        <p:growl id="messages" showDetail="true" />
+
+                        <p:toolbar styleClass="mb-4">
+                            <p:toolbarGroup>
+                                <p:commandButton value="Agregar" icon="pi pi-plus" action="recorrido" 
+                                                 styleClass="ui-button-success" style="margin-right: .5rem" />
+                            </p:toolbarGroup>
+                        </p:toolbar>
+                        
+                        <p:dataTable id="dt-recorridos" widgetVar="dtRecorridos" 
+                                     var="recorrido" value="#{recorridoView.recorridos}" 
+                                     reflow="true" styleClass="products-table"
+                                     selection="#{recorridoView.selectedRecorridos}" rowKey="#{recorrido.idRecorrido}"
+                                     paginator="true" rows="10" rowSelectMode="add" paginatorPosition="bottom" sortMode="single">
+                            <f:facet name="header">
+                                <div class="products-table-header">
+                                    <span style="font-weight: bold">Recorridos</span>
+
+                                    <span class="filter-container ui-input-icon-left">
+                                        <i class="pi pi-search"></i>
+                                        <p:inputText id="globalFilter" onkeyup="PF('dtRecorridos').filter()" placeholder="Search" />
+                                    </span>
+                                </div>
+                            </f:facet>
+
+                            <p:ajax event="rowToggle" listener="#{recorridoView.onRowToggle}" />
+                            <p:column exportable="false">
+                                <p:rowToggler />
+                            </p:column>
+                            <p:column headerText="Codigo" sortBy="#{recorrido.idRecorrido}" filterBy="#{recorrido.idRecorrido}">
+                                <h:outputText value="#{recorrido.idRecorrido}" />
+                            </p:column>
+                            <p:column headerText="Nombre" sortBy="#{recorrido.nombre}" filterBy="#{recorrido.nombre}">
+                                <h:outputText value="#{recorrido.nombre}" />
+                            </p:column>
+                            <p:column headerText="Duracion" sortBy="#{recorrido.duracion}" filterBy="#{recorrido.duracion}">
+                                <h:outputText value="#{recorrido.duracion}" />
+                            </p:column>
+                            <p:column headerText="Pais" sortBy="#{recorrido.pais}" filterBy="#{recorrido.pais}" >
+                                <h:outputText value="#{recorrido.pais}" />
+                            </p:column>
+                           
+                            <p:column headerText="Acciones">
+
+                                <p:menuButton value="Opciones">
+                                    <p:menuitem value="Modificar" icon="pi pi-refresh"/>
+                                    <p:menuitem value="Eliminar" icon="pi pi-trash"/>
+                                    <p:separator />
+                                </p:menuButton>
+
+                            </p:column>
+
+                        </p:dataTable>
+
+                        <p:confirmDialog widgetVar="deleteProductDialog" showEffect="fade" width="300" message="Delete the product?" header="Confirm" severity="warn">
+                            <p:commandButton value="Yes" icon="pi pi-check" actionListener="#{crudDemoView.deleteProduct}" process="@this" oncomplete="PF('deleteProductDialog').hide()"/>
+                            <p:commandButton value="No" type="button" styleClass="ui-button-secondary" icon="pi pi-times" onclick="PF('deleteProductDialog').hide()" />
+                        </p:confirmDialog>
+
+                        <p:confirmDialog global="true" showEffect="fade" width="300">
+                            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary" icon="pi pi-times" />
+                        </p:confirmDialog>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

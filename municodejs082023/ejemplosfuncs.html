@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function convertirADolares(){
+            let tipoCambio = 7.99;
+            let quetzales = parseInt(prompt("Ingrese cantidad de quetzales"));
+            let dolares = quetzales / tipoCambio;
+            return dolares;
+        }
+
+        for(let i = 1; i<=5; i++){
+            document.write("Dolares $"+ convertirADolares()+" <br>");
+        }
+
+        /*
+        Cree un procedimiento (método) que pida el nombre
+        de una persona y su edad y muestre si es mayor o
+        menor de edad. Ejecute dicho procedimiento cuantas
+    veces el usuario lo indique.
+
+        */
+
+        function evaluarEdad(){
+            let nombre = prompt("Ingrese nombre");
+            let edad = parseInt(prompt("ingrese edad"));
+            if (edad >=18){
+                document.write(nombre+" es mayor de edad <br>");
+            }else{
+                document.write(nombre+" es menor de edad <br>");
+            }
+        }
+
+        let respuesta;
+        do {
+            evaluarEdad();
+            respuesta = prompt("Desea evaluar otra edad? s/n");
+        }while(respuesta == "s");
+
+    </script>
+</body>
+</html>
